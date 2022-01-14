@@ -1,20 +1,19 @@
-from app.models import Compositions, compositions
+from app.models import Compositions
 from app.services import verifY_file_name
-from bs4 import BeautifulSoup
 from app.database import session
+from app.services.get_tables import get_table
+from app.services.open_file import open_file
+from app.config import settings
 import os
-import sys
 
-sys.path.append(os.path.realpath('..'))
-
-path = '/home/enganderson/OneDrive/seinfra-ce/html-seinfra'
+path = settings.PATH_FOLDER
 
 
 def get_html_content(filepath):
     if os.path.isfile(filepath):
         if verifY_file_name(filepath):
-            with open(filepath, 'r') as f:
-                html = f.read()
+
+            html = open_file(filepath)
     return html
 
 
@@ -71,11 +70,7 @@ def list_the_files_and_scrap_compositions_with_supplies():
 
             html = get_html_content(filepath)
 
-            soup = BeautifulSoup(html, 'html.parser')
-
-            table = soup.find('table')
-
-            table = soup.find('table')
+            table = get_table(html)
 
             composition = scrap_composition_content(table)
 
