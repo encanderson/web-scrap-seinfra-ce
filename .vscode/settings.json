@@ -4,5 +4,9 @@
         "editor.defaultFormatter": "ms-python.python",
         "editor.formatOnPaste": false
     },
-    "window.title": "Seinfra -Api"
+    "window.title": "Seinfra -Api",
+    "cSpell.words": [
+        "dotenv",
+        "pydantic"
+    ]
 }
