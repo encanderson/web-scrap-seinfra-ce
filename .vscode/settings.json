@@ -6,8 +6,11 @@
     },
     "window.title": "Seinfra -Api",
     "cSpell.words": [
+        "Composições",
         "dotenv",
+        "opção",
         "pydantic",
+        "Serviços",
         "tabela"
     ]
 }
